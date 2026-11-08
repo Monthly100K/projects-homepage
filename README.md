@@ -61,6 +61,7 @@ src/
     animations.css             # 등장 효과와 모션 감소 설정
   types/
     privacy-policy.ts          # 정책 콘텐츠의 TypeScript 자료형
+public/app-ads.txt              # AdMob 광고 판매자 인증 파일
 public/sg-bus-mrt/              # 원본 앱 아이콘
 next.config.ts                 # Next.js 설정
 .yarnrc.yml                     # Yarn 설치 방식 설정
@@ -94,6 +95,7 @@ vercel.json                     # Vercel의 Yarn 설치·빌드 명령
 | `/` | Pekaz.DEV 홈페이지와 앱 소개 링크 |
 | `/sg-bus-mrt` | SG Bus MRT 소개, 첨부 아이콘, App Store·Google Play 링크 |
 | `/sg-bus-mrt/privacy-policy` | SG Bus MRT 영문 Privacy Policy |
+| `/app-ads.txt` | AdMob 광고 판매자 인증 파일 |
 
 스토어 링크와 문의 이메일은 `src/features/sg-bus-mrt/config.ts`에서 관리합니다. 아이콘은 `public/sg-bus-mrt/icon.png`에 원본 그대로 저장되어 있습니다.
 
@@ -118,6 +120,22 @@ Privacy Policy는 2026-11-08 앱 소스의 위치 기능, 로컬 저장소, Goog
 `vercel.json`에서 Corepack을 통해 프로젝트에 고정된 Yarn 버전으로 설치·빌드하도록 지정했습니다. Vercel 화면에서 설치·빌드 명령을 별도로 덮어쓸 필요가 없습니다. 최초 연결 이후에는 Vercel에 지정된 Production Branch로 푸시할 때 자동 배포됩니다. 현재 로컬 기본 브랜치는 `main`입니다.
 
 배포가 완료되면 Vercel이 발급한 주소로 확인하고, 필요하면 프로젝트의 Domains에서 개인 도메인을 연결할 수 있습니다.
+
+## AdMob app-ads.txt
+
+`public/app-ads.txt`를 통해 사이트 최상위의 `/app-ads.txt`에서 다음 내용을 제공합니다.
+
+```text
+google.com, pub-2350736012338915, DIRECT, f08c47fec0942fa0
+```
+
+게시자 ID는 SG Bus MRT의 iOS·Android 광고 설정에서 확인한 값을 사용합니다. AdMob 콘솔에서 제공하는 개인화된 app-ads.txt 코드와 일치하는지 확인합니다.
+
+1. 사이트를 배포하고, 최종 공개 도메인의 `/app-ads.txt`가 로그인 없이 열리는지 확인합니다. 앱 소개 경로인 `/sg-bus-mrt` 아래가 아니라 도메인 최상위에 있어야 합니다.
+2. Google Play의 개발자 웹사이트와 App Store의 Marketing URL에 이 사이트 주소를 등록합니다. 개인정보처리방침 URL과는 별도입니다.
+3. AdMob에서 app-ads.txt 상태를 확인하고 필요한 앱 인증을 요청합니다. 파일 추가만으로 배포·스토어 등록·AdMob 인증이 자동 완료되지는 않습니다.
+
+공식 안내: [app-ads.txt 설정](https://support.google.com/admob/answer/9363762?hl=en), [AdMob 앱 인증](https://support.google.com/admob/answer/14538460?hl=en).
 
 ## 의존성 점검
 
