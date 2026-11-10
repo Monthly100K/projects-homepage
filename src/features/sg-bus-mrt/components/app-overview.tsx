@@ -10,12 +10,9 @@ function AppHero() {
       className="grid items-center gap-10 pt-14 pb-16 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-12 sm:pt-24 sm:pb-24"
     >
       <div className="fade-in">
-        <p className="text-xs font-medium tracking-[0.18em] text-zinc-500">
-          {overviewContent.eyebrow}
-        </p>
         <h1
           id="app-title"
-          className="mt-5 text-5xl leading-tight font-semibold tracking-tighter sm:text-6xl"
+          className="text-5xl leading-tight font-semibold tracking-tighter sm:text-6xl"
         >
           {sgBusMrt.name}
         </h1>
@@ -23,9 +20,6 @@ function AppHero() {
           {overviewContent.introduction}
         </p>
         <StoreLinks />
-        <p className="mt-4 text-xs text-zinc-500">
-          {overviewContent.availability}
-        </p>
       </div>
       <Image
         {...sgBusMrt.icon}

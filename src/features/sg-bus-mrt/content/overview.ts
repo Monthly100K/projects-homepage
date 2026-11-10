@@ -1,10 +1,8 @@
 export const overviewContent = {
   metadataDescription:
     "Real-time bus arrivals, MRT routes and station exits for getting around Singapore. Download SG Bus MRT for iPhone and Android.",
-  eyebrow: "MADE FOR SINGAPORE",
   introduction:
     "Live bus arrivals, MRT routes and station exits, all in one place. Find your next ride and get on with your day.",
-  availability: "Free to download. Contains ads.",
   features: [
     {
       title: "Catch your next bus.",
